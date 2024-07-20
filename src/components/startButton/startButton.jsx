@@ -1,13 +1,13 @@
-import { Text, TouchableOpacity } from "react-native";
-import { styles } from "./startButton.styles";
+import { Text, TouchableOpacity } from 'react-native';
+import { styles } from './startButton.styles';
 
 export function StartButton(props) {
-  const { startButtonStyle, textStartButtonStyle, text } = props;
+  const { startButtonStyle, textStartButtonStyle } = props;
   return (
     <>
       <TouchableOpacity
         style={[styles.startButton, startButtonStyle]}
-        onPress={props.onPress}
+        {...props}
       >
         <Text style={[styles.textStartButton, textStartButtonStyle]}>
           {props.text}

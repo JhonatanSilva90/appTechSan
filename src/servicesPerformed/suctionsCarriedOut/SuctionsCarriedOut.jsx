@@ -1,11 +1,11 @@
-import { NavigationBar } from "../../components/navigationbar/navigationBar.jsx";
-import { Logo } from "../../components/logo/logo.jsx";
-import { Header } from "../../components/body/header/header.jsx";
-import { View, ScrollView, TouchableOpacity, Image } from "react-native";
-import { styles } from "./SuctionsCarriedOut.js";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { ServiceIdentification } from "../../components/serviceIdentification/ServiceIdentification.jsx";
-import images from "../../constantes/images.js";
+import { NavigationBar } from '../../components/navigationbar/navigationBar.jsx';
+import { Logo } from '../../components/logo/logo.jsx';
+import { Header } from '../../components/body/header/header.jsx';
+import { View, ScrollView, TouchableOpacity, Image } from 'react-native';
+import { styles } from './SuctionsCarriedOut.styles';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { ServiceIdentification } from '../../components/serviceIdentification/ServiceIdentification.jsx';
+import images from '../../constantes/images.js';
 
 export function SuctionsCarriedOut(props) {
   return (

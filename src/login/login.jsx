@@ -1,18 +1,20 @@
-import { View } from "react-native";
-import images from "../constantes/images";
-import { styles } from "./login.styles";
-import { Logo } from "../components/logo/logo";
-import { TextBoxLogin } from "../components/textBox/textBoxLogin/textBoxLogin";
-import { useState } from "react";
-import { StartButton } from "../components/startButton/startButton";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { View } from 'react-native';
+import images from '../constantes/images';
+import { styles } from './login.styles';
+import { Logo } from '../components/logo/logo';
+import { TextBoxLogin } from '../components/textBox/textBoxLogin/textBoxLogin';
+import { useState } from 'react';
+import { StartButton } from '../components/startButton/startButton';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useAuth } from '../providers/AuthProvider';
 
 export function Login(props) {
-  const [usuario, setUsuario] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const { login } = useAuth();
 
   function processLogin() {
-    console.log(usuario, password);
+    login({ username, password });
   }
 
   return (
@@ -24,9 +26,9 @@ export function Login(props) {
             <View style={styles.form}>
               <TextBoxLogin
                 image={images.avatar}
-                value={usuario}
+                value={username}
                 placeholder="Usuário"
-                onChangeText={(text) => setUsuario(text)}
+                onChangeText={(text) => setUsername(text)}
               />
             </View>
             <View style={styles.form}>
@@ -43,7 +45,8 @@ export function Login(props) {
             <StartButton
               text="Entrar"
               textStartButtonStyle={styles.textStartButtonStyle}
-              onPress={() => props.navigation.navigate("Overview")}
+              disabled={!username || !password}
+              onPress={processLogin}
             />
           </View>
         </View>
