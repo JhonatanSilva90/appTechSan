@@ -1,20 +1,24 @@
-import { TextBox } from "../../components/textBox/TextBox.jsx";
 import { styles } from "./ValidationServices.styles.js";
-import { View } from "react-native";
+import { View, TouchableOpacity, Text, Image } from "react-native";
+import images from "../../constantes/images.js";
+import { useNavigation } from "@react-navigation/native";
 
-import { useState } from "react";
-
-export function ValidationServices({ navigation }) {
+export function ValidationServices() {
+  const navigation = useNavigation();
   return (
     <>
-      <View style={styles.container}>
-        <TextBox text="Nome do aprovador(a)" />
-        <TextBox text="Matrícula do aprovador(a)" />
-        <TextBox
-          text="Assinatura do Aprovador(a)"
-          inputBoxStyle={styles.mediumBox}
-        />
-      </View>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() => {
+          navigation.navigate("SignatureCapture");
+          // onPress(); // Fechar o menu após a navegação
+        }}
+      >
+        <View style={styles.buttonContainer}>
+          <Text style={styles.text}>Coletar Assinatura</Text>
+          <Image source={images.digitalSignature} style={styles.image} />
+        </View>
+      </TouchableOpacity>
     </>
   );
 }

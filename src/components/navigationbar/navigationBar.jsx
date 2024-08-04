@@ -1,10 +1,12 @@
-import { Text, View, Image, TouchableOpacity } from 'react-native';
-import images from '../../constantes/images';
-import { styles } from './navigationBar.styles';
-import { useAuth } from '../../providers/AuthProvider';
+import { Text, View, Image, TouchableOpacity } from "react-native";
+import images from "../../constantes/images";
+import { styles } from "./navigationBar.styles";
+import { useAuth } from "../../providers/AuthProvider";
+import { useNavigation } from "@react-navigation/native";
 
 export function NavigationBar() {
   const { logout } = useAuth();
+  const { navigate } = useNavigation();
 
   return (
     <>
@@ -12,7 +14,7 @@ export function NavigationBar() {
         <TouchableOpacity
           style={styles.navItem}
           onPress={() => {
-            navigation.navigate('Overview');
+            navigate("Overview");
           }}
         >
           <Image style={styles.images} source={images.home} />
@@ -21,7 +23,7 @@ export function NavigationBar() {
         <TouchableOpacity
           style={styles.navItem}
           onPress={() => {
-            navigation.navigate('PendingSignature');
+            navigate("PendingSignature");
           }}
         >
           <Image style={styles.images} source={images.listing} />

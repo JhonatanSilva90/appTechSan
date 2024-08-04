@@ -15,6 +15,8 @@ import { CleaningBathrooms } from '../services/cleaningBathrooms/cleaningBathroo
 import { EfluentSuction } from '../services/efluentSuction/efluentSuction';
 import { BathroomsCarriedOut } from '../servicesPerformed/bathroomsCarriedOut/BathroomsCarriedOut';
 import { SuctionsCarriedOut } from '../servicesPerformed/suctionsCarriedOut/SuctionsCarriedOut';
+import { SignatureCapture } from '../components/signatureCapture/SignatureCapture';
+import { ValidationServices } from '../components/validationServices/ValidationServices';
 
 export const AppStack = createNativeStackNavigator();
 
@@ -99,6 +101,16 @@ export function AppRoutes() {
       <AppStack.Screen
         name="PendingSignature"
         component={PendingSignature}
+        options={{ headerShown: false }}
+      />
+      <AppStack.Screen
+        name="ValidationServices"
+        component={ValidationServices}
+        options={{ headerShown: false }}
+      />
+      <AppStack.Screen
+        name="SignatureCapture"
+        component={SignatureCapture}
         options={{ headerShown: false }}
       />
     </AppStack.Navigator>

@@ -16,7 +16,7 @@ export function EfluentSuctionOrder(props) {
       <SafeAreaView style={styles.container}>
         <View>
           <Logo />
-          <ServiceOrderHeader
+          <ServiceOrderHeader text="Ordem de Serviço"
             onPress={() => {
               props.navigation.goBack();
             }}

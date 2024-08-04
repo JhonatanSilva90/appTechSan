@@ -24,6 +24,7 @@ export function AuthProvider({ children }) {
       const userData = await api.get('/profile');
       setUser(userData.data);
     } catch (error) {
+      console.log("Erro!", error)
       if (error.response?.status === 400) {
         return Toast.show({
           type: 'error',

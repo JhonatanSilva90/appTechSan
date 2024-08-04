@@ -8,7 +8,7 @@ import images from "../constantes/images.js";
 import { useState } from "react";
 import { CheckboxPendingSignature } from "../components/checkbox/checkboxPendingSignature/CheckboxPendingSignature.jsx";
 
-export function PendingSignature(props) {
+export function PendingSignature({ navigation }) {
   const [selectedServices, setSelectedServices] = useState([]);
 
   const toggleCheckbox = (info) => {
@@ -27,7 +27,7 @@ export function PendingSignature(props) {
           <TouchableOpacity
             style={styles.close}
             onPress={() => {
-              props.navigation.goBack();
+              navigation.goBack();
             }}
           >
             <Image source={images.close} style={styles.imageClose} />
@@ -36,7 +36,13 @@ export function PendingSignature(props) {
             <Header />
           </View>
           <View style={styles.signatureButton}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                navigation.navigate("SignatureCapture");
+                // onPress(); // Fechar o menu após a navegação
+              }}
+            >
               <Text style={styles.signatureText}>Assinar</Text>
               <Image source={images.digitalSignature} />
             </TouchableOpacity>

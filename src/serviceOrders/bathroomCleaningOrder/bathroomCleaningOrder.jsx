@@ -16,7 +16,7 @@ export function BathroomCleaningOrder({ navigation }) {
       <SafeAreaView style={styles.container}>
         <View>
           <Logo />
-          <ServiceOrderHeader
+          <ServiceOrderHeader text="Ordem de Serviço"
             onPress={() => {
               navigation.goBack();
             }}
